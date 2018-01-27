@@ -68,11 +68,17 @@ Display: `date`
 Measure: `time <command>`
 
 ### Service management
-systemd: `systemctl stop <name>`
+With `<op>` is `start`, `stop`, `status`, `enable`, `disable`.
 
-service: `service <name> stop`
+#### SystemD:
+`systemctl <op> <name>`
 
-init.d: `/etc/init.d/<name> stop`
+`systemctl list-units --type=service`
+
+#### SysV:
+`service <name> <op>` or `/etc/init.d/<name> <op>`
+
+`service --status-all`
 
 ### Process monitoring
 `ps aux`, `top`, `htop`
