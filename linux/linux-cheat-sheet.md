@@ -38,14 +38,14 @@ Try any of these options (not really recommended):
 ##### Using SSH
 Comment out the `SendEnv LANG LC_*` line in `/etc/ssh/ssh_config` on the ***client***, to not forward locale information to the server.
 
-### Zeroconf (multicast dns)
+### Zeroconf (multicast DNS)
 ```
 $ apt-get install avahi-daemon
 ```
 The device should immediately respond to queries, e.g. `ping hostname.local`.
 
 
-## Tools
+## System utilities
 
 ### Package manager
 Install: `apt install <name>`, `apt-get install <name>`
@@ -81,8 +81,7 @@ init.d: `/etc/init.d/<name> stop`
 ## Debugging
 
 ### Hardware and peripherals (device drivers)
-I have no idea what a 'kernel ring buffer' is, but it seems to have your back:
-
-`dmesg`
+View kernel logs: `dmesg`.
+> See also `/var/log/dmesg` and `/var/log/kern.log`.
 
 Other useful commands: `lspci`, `lsusb`, `hwinfo`.
