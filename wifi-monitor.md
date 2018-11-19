@@ -1,4 +1,4 @@
-# Wi-Fi monitoring
+# Wi-Fi monitoring (Linux)
 Capture raw WLAN network traffic.
 
 ## Device listing
