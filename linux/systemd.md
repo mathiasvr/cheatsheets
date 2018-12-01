@@ -3,9 +3,20 @@ SystemD is a comprehensive software suite and init system.
 This document only considers service management.
 
 ## Common usage
-`systemctl [start/stop/status/enable/disable] <unit>`
+```shell
+$ systemctl [start/stop/restart/status/enable/disable] <unit>
+```
 
-`systemctl status`, `systemctl list-units --type=service`
+```shell
+$ systemctl status
+$ systemctl list-units --type=service
+```
+
+## Logs
+To read the output of a specific service unit:
+```shell
+$ journalctl -u <unit>
+```
 
 ## Create startup service
 Create a service script, as root, in the directory: `/etc/systemd/system/my.service`
@@ -32,8 +43,18 @@ Check service syntax with:
 $ systemd-analyze verify /etc/systemd/system/my.service
 ```
 
-## Logs (service output)
-To read the output of a specific service unit:
+When changing the service script, the daemon should be reloaded:
+```shell
+$ systemctl daemon-reload
 ```
-$ journalctl -u <unit>
+
+### More examples
+
+Automatically **restart** service if the process terminates:
+```ini
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+ExecStart=/path/to/script
 ```
