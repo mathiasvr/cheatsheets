@@ -22,6 +22,24 @@ $ ssh pi@raspberrypi.local
 $ sudo apt-get update -y && sudo apt-get upgrade -y
 ```
 
+# headless
+Enable ssh and set up wifi on sd card:
+```
+$ touch /Volumes/boot/ssh
+```
+
+Create file `/Volumes/boot/wpa_supplicant.conf` with contents:
+```
+country=US
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="NETWORK-NAME"
+    psk="NETWORK-PASSWORD"
+}
+```
+
 ## Wi-Fi
 WPA Supplicant should be preconfigured in `/etc/network/interfaces`.
 
